@@ -49,7 +49,6 @@ class GameObject:
         self.body_color = body_color
 
     def draw(self):
-        """Отрисовывает объект. Должен быть переопределён в дочерних классах."""
         pass
 
 
@@ -78,7 +77,6 @@ class Snake(GameObject):
     """Класс Змейки, наследуемый от GameObject."""
 
     def __init__(self):
-        """Инициализирует змейку с длиной 1, направлением вправо."""
         super().__init__(body_color=SNAKE_COLOR)
         self.length = 1
         self.positions = [self.position]
@@ -97,12 +95,6 @@ class Snake(GameObject):
             self.next_direction = None
 
     def move(self):
-        """
-        Двигает змейку на одну клетку.
-        
-        Проверяет столкновение с собой и переносит голову, добавляя
-        новую позицию и удаляя хвост, если длина не увеличилась.
-        """
         cur = self.get_head_position()
         dx, dy = self.direction
         new_x = (cur[0] + dx * GRID_SIZE) % SCREEN_WIDTH
