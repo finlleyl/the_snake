@@ -49,6 +49,7 @@ class GameObject:
         self.body_color = body_color
 
     def draw(self):
+        """Метод"""
         pass
 
 
@@ -95,6 +96,7 @@ class Snake(GameObject):
             self.next_direction = None
 
     def move(self):
+        """Другой метод"""
         cur = self.get_head_position()
         dx, dy = self.direction
         new_x = (cur[0] + dx * GRID_SIZE) % SCREEN_WIDTH
